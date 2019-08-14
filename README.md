@@ -34,6 +34,6 @@ TBA: Arbitrary Vectored Exception Handling Detection
 
 ### Thread Blocking
 
-Hooks RtlUserThreadStart and checks if the designated address of execution for the thread is within the correct memory bounds. In this case, it is called "image-only execution", where only threads within the primary image (and some other excluded images such as ucrtbased.dll) are allowed to have threads run. If a thread is running outside of these bounds then it is detected as malicious inside an invalid execution space.
+Hooks RtlUserThreadStart and checks if the designated address of execution for the thread is within the correct memory bounds. In this case, it is called "image-only execution", where only threads within the primary image (and some other excluded images such as ucrtbased.dll) are allowed to have threads run. If a thread is running outside of these bounds then it is detected as malicious inside an invalid execution space. This also prevents debuggers from attaching the process since RtlUserThreadStart is executed before DbgUiRemoteBreakIn is called which executes outside of the secure boundaries.
 
 
