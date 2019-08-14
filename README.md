@@ -24,6 +24,7 @@ Scans each process based on the contents (process name, window name) and unique 
 ### Module Scanner
 
 Scans the loaded modules in the process for any with suspicious names.
+
 TBA: Signature scanning
 
 ### Anti-Debugging
